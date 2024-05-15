@@ -3,6 +3,7 @@ const { body, validationResult } = require('express-validator')
 require('dotenv').config()
 const { createToken, maxAge } = require('../middleware/auth')
 const jwt = require('jsonwebtoken')
+const logger = require('../startup/logging')
 
 //> Current user
 module.exports.get_currentUser = (req, res) => {
