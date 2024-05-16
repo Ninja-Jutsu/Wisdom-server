@@ -4,7 +4,7 @@ const cors = require('cors')
 
 // Very important in order to access your cookies on Frontend
 const corsOptions = {
-  origin: 'http://localhost:3000', // Replace with your frontend origin
+  origin: '*', // Replace with your frontend origin
   exposedHeaders: ['set-cookie'],
   credentials: true, // Allow requests with credentials
   allowedHeaders: ['Content-Type', 'Authorization'], // Optional, specify allowed headers
