@@ -3,6 +3,9 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 
 // Very important in order to access your cookies on Frontend
+const frontEnd = process.env.FRONT_END_URL
+console.log('ROUTES' + frontEnd)
+
 const corsOptions = {
   origin: process.env.FRONT_END_URL, // Replace with your frontend origin
   exposedHeaders: ['set-cookie', 'get-cookie'],
@@ -22,9 +25,9 @@ const authRouter = require('../routes/auth')
 // Use in index.js
 module.exports = function (app) {
   //Middleware
-  app.use(cors(corsOptions))
   app.use(express.json())
   app.use(cookieParser())
+  app.use(cors(corsOptions))
 
   //Routes
   app.use('*', checkUser) // check for every route if the user is logged in
